@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/botonCalcularr"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Calculador Areas" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:rowCount="3">
+
+            <ImageButton
+                android:id="@+id/imageButtonCuadrado"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaCuadrado"
+                android:src="@mipmap/cuadradooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonRectangulo"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaRectangulo"
+                android:src="@mipmap/rectangleee" />
+
+            <ImageButton
+                android:id="@+id/imageButtonTriangulo"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaTriangulo"
+                android:src="@mipmap/triangle" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCirculo"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaCirculo"
+                android:src="@mipmap/circculooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonPentagono"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaPentagono"
+                android:src="@mipmap/pentagonoo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonHexagono"
+                android:layout_width="137dp"
+                android:layout_height="110dp"
+                android:onClick="calcularAreaHexagono"
+                android:src="@mipmap/hexagonoo" />
+        </GridLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Base:" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            android:text="El área de forma geométrica es:" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:text="Altura:" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:rowCount="4">
+
+            <ImageButton
+                android:id="@+id/imageButtonUNO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="1"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/unoo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonDOS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="2"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/dooos" />
+
+            <ImageButton
+                android:id="@+id/imageButtonTRES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="3"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/treees" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCUATRO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="4"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/cuatrooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCINCO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="5"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/cincooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSEIS"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="6"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/seiiis" />
+
+            <ImageButton
+                android:id="@+id/imageButtonSIETE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="7"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/sieteee" />
+
+            <ImageButton
+                android:id="@+id/imageButtonOCHO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="8"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/ochooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonNUEVE"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="9"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/nueveee" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCERO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:contentDescription="0"
+                android:onClick="agregarNumero"
+                android:src="@mipmap/cerooo" />
+        </GridLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/botonBorrar"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:gravity="center"
+            android:text="Borrar" />
+
+        <Button
+            android:id="@+id/botonCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcular"
+            android:onClick="calcularArea" />
+    </FrameLayout>
+</LinearLayout>
