@@ -1,9 +1,10 @@
 package com.example.practica2_calculadora
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -26,19 +27,24 @@ class MainActivity : AppCompatActivity() {
     private lateinit var botonCalcular: Button
     private lateinit var botonesNumero: Array<ImageButton>
     private lateinit var botonBorrar: Button
+    private lateinit var botonCambiar: ImageButton
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        entradaLado = findViewById(R.id.textView5)
-        entradaBase = findViewById(R.id.textView3)
-        entradaAltura = findViewById(R.id.textView4)
-        entradaRadio = findViewById(R.id.textView5)
-        entradaApotema = findViewById(R.id.textView3)
+        entradaLado = findViewById(R.id.textViewLado)
+        entradaBase = findViewById(R.id.textViewBase)
+        entradaAltura = findViewById(R.id.textViewAltura)
+        entradaRadio = findViewById(R.id.textViewRadio)
+        entradaApotema = findViewById(R.id.textViewApotema)
         textViewResultado = findViewById(R.id.textView4)
         botonCalcular = findViewById(R.id.botonCalcular)
         botonBorrar = findViewById(R.id.botonBorrar)
+        botonCambiar = findViewById(R.id.imageButtonCambiar)
 
         botonesNumero = arrayOf(
             findViewById(R.id.imageButtonUNO),
@@ -52,11 +58,12 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.imageButtonNUEVE),
             findViewById(R.id.imageButtonCERO)
         )
-        // Llamada a funciones para establecer los listeners de los botones
+        //llama a las funciones para establecer los listeners de los botones
         establecerListenersForma()
         establecerListenersNumeros()
         establecerListenerBotonCalcular()
         establecerListenerBotonBorrar()
+        establecerListenerBotonCambiar()
     }
 
     private fun establecerListenersForma() {
@@ -68,10 +75,10 @@ class MainActivity : AppCompatActivity() {
             findViewById<ImageButton>(R.id.imageButtonPentagono),
             findViewById<ImageButton>(R.id.imageButtonHexagono)
         )
-        // Listener para cada botón que selecciona la forma geométrica
+        //listener para cada botnn que selecciona la forma geometrica
         for (boton in botonesForma) {
             boton.setOnClickListener {
-                // Determina la forma seleccionada según el botón presionado
+                //determina la forma seleccionada segun el boton seleccioando
                 formaSeleccionada = when (boton.id) {
                     R.id.imageButtonCuadrado -> FormaGeometrica.CUADRADO
                     R.id.imageButtonRectangulo -> FormaGeometrica.RECTANGULO
@@ -81,43 +88,121 @@ class MainActivity : AppCompatActivity() {
                     R.id.imageButtonHexagono -> FormaGeometrica.HEXAGONO
                     else -> FormaGeometrica.CUADRADO
                 }
-                // Actualiza la visibilidad de las entradas dependiendo de la forma seleccionada
+                //actualiza la visibilidad de las entradas dependiendo de la forma seleccionada
                 actualizarVisibilidadEntrada()
             }
         }
     }
-    // Función para establecer los listeners de los botones numéricos
-    /*private fun establecerListenersNumeros() {
-        // Listener para cada botón numérico
+    //funcion para establecer los listeners de los botones numericos
+    private fun establecerListenersNumeros() {
+        //listener para cada botón numérico
         for (i in botonesNumero.indices) {
-            val numero = i.toString()
-            botonesNumero[i].setOnClickListener {
+            val numero = (i + 1).toString()
+            botonesNumero[i].setOnClickListener { view ->
                 agregarNumero(numero)
             }
         }
-    }*/
+    }
 
 
 
-    private fun establecerListenersNumeros() {
+
+    /*private fun establecerListenersNumeros() {
         // Listener para cada botón numérico
         for (i in botonesNumero.indices) {
             val numero = i.toString()
             botonesNumero[i].setOnClickListener { agregarNumero(numero) }
         }
-    }
-    // Función para agregar un número a la entrada correspondiente según la forma seleccionada
-    private fun agregarNumero(view: String) {
-        val numero = view
+    }*/
+    //funcion para agregar un numero a la entrada segun la forma seleccionada
+    /*private fun agregarNumero(numero: String) {
         val textView = obtenerTextView(formaSeleccionada)
         val textoActual = textView?.text.toString()
         textView?.text = textoActual + numero
+    }*/
+
+
+    var opcion = 0
+
+    private fun listenerCambiar(){
+        if(opcion == 0){
+            if(botonCambiar.isClickable){
+                opcion = 1
+            }
+        } else
+            opcion = 0
+
     }
+
+    private fun establecerListenerBotonCambiar() {
+        botonCambiar.setOnClickListener {
+            listenerCambiar()
+        }
+    }
+
+
+
+    //funcion para agregar los numeros dependiendo de la forma que se seleccione
+    private fun agregarNumero(numero: String) {
+        when (formaSeleccionada) {
+            FormaGeometrica.CUADRADO -> {
+
+                entradaLado.append(numero)
+            }
+
+            FormaGeometrica.RECTANGULO -> {
+
+                when(opcion){
+
+                    0 -> entradaBase.append(numero)
+                    1 ->  entradaAltura.append(numero)
+                }
+
+            }
+
+            FormaGeometrica.CIRCULO -> {
+
+                entradaRadio.append(numero)
+            }
+            FormaGeometrica.TRIANGULO -> {
+
+                when(opcion){
+
+                    0 -> entradaBase.append(numero)
+                    1 ->  entradaAltura.append(numero)
+                }
+            }
+            FormaGeometrica.PENTAGONO -> {
+
+                when(opcion){
+
+                    0 -> entradaBase.append(numero)
+                    1 ->  entradaApotema.append(numero)
+                }
+            }
+            FormaGeometrica.HEXAGONO -> {
+
+                when(opcion){
+
+                    0 -> entradaBase.append(numero)
+                    1 ->  entradaApotema.append(numero)
+                }
+            }
+        }
+    }
+
+    fun onNumero(numero: String) {
+        agregarNumero(numero)
+    }
+
+
+
 
     private fun obtenerTextView(formaSeleccionada: FormaGeometrica): TextView? {
         return when (formaSeleccionada) {
             FormaGeometrica.CUADRADO -> entradaLado
-            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO -> entradaBase
+            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO -> entradaAltura
+            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO, FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaBase
             FormaGeometrica.CIRCULO -> entradaRadio
             FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaApotema
         }
@@ -135,20 +220,80 @@ class MainActivity : AppCompatActivity() {
         val textoActual = editText.text.toString()
         editText.setText(textoActual + numero)
     }*/
-    // Función para establecer el listener del botón de cálculo
-    private fun establecerListenerBotonCalcular() {
-        botonCalcular.setOnClickListener {
-            calcularArea()
+    //funcion para establecer el listener del boton de calcular
+
+
+    //funcion para obtener el valor numero de los TextView
+    private fun obtenerValorNumerico(textView: TextView): Double {
+        val text = textView.text.toString()
+        return try {
+            text.toDouble()
+        } catch (e: NumberFormatException) {
+            Log.e("Error", "Error al convertir $text a Double", e)
+            Double.NaN
         }
     }
-    // Función para establecer el listener del botón de borrar
-    private fun establecerListenerBotonBorrar() {
-        botonBorrar.setOnClickListener {
-            borrarEntradas()
-        }
-    }
-    // Función para actualizar la visibilidad de las entradas dependiendo de la forma seleccionada
+
     private fun actualizarVisibilidadEntrada() {
+        //oculta todos los campos de entrada
+
+        entradaLado.visibility = View.GONE
+        entradaBase.visibility = View.GONE
+        entradaAltura.visibility = View.GONE
+        entradaRadio.visibility = View.GONE
+        entradaApotema.visibility = View.GONE
+
+        //muestra solo el campo que se quiere para la forma seleccionada
+        when (formaSeleccionada) {
+            FormaGeometrica.CUADRADO -> {
+                entradaLado.text = "Lado:"
+                entradaLado.visibility = View.VISIBLE
+
+            }
+            FormaGeometrica.RECTANGULO -> {
+                entradaBase.text = "Base:"
+                entradaAltura.text = "Altura:"
+                entradaBase.visibility = View.VISIBLE
+                entradaAltura.visibility = View.VISIBLE
+
+            }
+            FormaGeometrica.CIRCULO -> {
+                entradaRadio.text = "Radio:"
+                entradaRadio.visibility = View.VISIBLE
+
+            }
+            FormaGeometrica.TRIANGULO -> {
+                entradaBase.text = "Base:"
+                entradaAltura.text = "Altura:"
+                entradaBase.visibility = View.VISIBLE
+                entradaAltura.visibility = View.VISIBLE
+
+            }
+            FormaGeometrica.PENTAGONO -> {
+                entradaBase.text = "Base:"
+                entradaApotema.text = "Apotema:"
+                entradaBase.visibility = View.VISIBLE
+                entradaApotema.visibility = View.VISIBLE
+
+            }
+            FormaGeometrica.HEXAGONO -> {
+                entradaBase.text = "Base:"
+                entradaApotema.text = "Apotema:"
+                entradaBase.visibility = View.VISIBLE
+                entradaApotema.visibility = View.VISIBLE
+
+            }
+        }
+        textViewResultado.visibility = View.VISIBLE
+    }
+
+
+
+
+
+
+    //funcion para actualizar la visibilidad de las entradas dependiendo de la forma seleccionada
+    /*private fun actualizarVisibilidadEntrada() {
         // Oculta todos los campos de entrada
         entradaLado.visibility = View.GONE
         entradaBase.visibility = View.GONE
@@ -172,7 +317,7 @@ class MainActivity : AppCompatActivity() {
             FormaGeometrica.HEXAGONO -> entradaApotema.visibility = View.VISIBLE
         }
         textViewResultado.visibility = View.VISIBLE
-    }
+    }*/
 
 
 
@@ -237,8 +382,8 @@ class MainActivity : AppCompatActivity() {
         entradaApotema.visibility =
             if (formaSeleccionada == FormaGeometrica.PENTAGONO || formaSeleccionada == FormaGeometrica.HEXAGONO) View.VISIBLE else View.GONE
     }*/
-    // Función para calcular el área dependiendo de la forma seleccionada
-    private fun calcularArea() {
+    //funcion para calcular el area dependiendo de la forma seleccionada
+    /*private fun calcularArea() {
         val area = when (formaSeleccionada) {
             FormaGeometrica.CUADRADO -> calcularAreaCuadrado(entradaLado.text.toString().toDouble())
             FormaGeometrica.RECTANGULO -> calcularAreaRectangulo(
@@ -259,11 +404,148 @@ class MainActivity : AppCompatActivity() {
                 entradaApotema.text.toString().toDouble()
             )
         }
-        // Actualiza el TextView con el resultado del área
+        //actualiza el TextView con el resultado del area
         textViewResultado.text = "El área de la forma geométrica es: $area"
+    }*/
+
+    //funcion para calcular el area segun la forma seleccionada
+
+    private fun establecerListenerBotonCalcular() {
+        botonCalcular.setOnClickListener {
+            calcularArea()
+        }
     }
 
-    // Funciones para calcular el área de cada forma geométrica
+    private fun calcularArea() {
+
+        try {
+            val resultado: Double = when (formaSeleccionada) {
+                FormaGeometrica.CUADRADO -> {
+                    fun String.fullTrim() = trim().replace("Lado:", "")
+                    val paraStringCuadrado = entradaLado.text.toString().fullTrim()
+                    val lado: Double =  paraStringCuadrado.toDouble()
+
+                    if (lado != null) {
+                        val area = calcularAreaCuadrado(lado)
+                        actualizarTextViews("", "","", "Lado: $lado", "", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+
+                }
+
+                FormaGeometrica.RECTANGULO -> {
+                    fun String.fullTrim() = trim().replace("Base:", "")
+                    val paraStringRectanguloBase = entradaBase.text.toString().fullTrim()
+                    val base:Double = paraStringRectanguloBase.toDouble()
+                    fun String.fullTrim2() = trim().replace("Altura:", "")
+                    val paraStringRectanguloAltura = entradaAltura.text.toString().fullTrim2()
+                    val altura = paraStringRectanguloAltura.toDoubleOrNull()
+                    if (base != null && altura != null) {
+                        val area = calcularAreaRectangulo(base, altura)
+                        actualizarTextViews("Base: $base", "", "", "", "Altura: $altura", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+                }
+
+                FormaGeometrica.CIRCULO -> {
+                    fun String.fullTrim() = trim().replace("Radio:", "")
+                    val paraStringCirculo = entradaRadio.text.toString().fullTrim()
+                    val radio = paraStringCirculo.toDoubleOrNull()
+                    if (radio != null) {
+                        val area = calcularAreaCirculo(radio)
+                        actualizarTextViews("", "","Radio: $radio", "", "", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+                }
+
+                FormaGeometrica.TRIANGULO -> {
+                    fun String.fullTrim() = trim().replace("Base:", "")
+                    val paraStringTrianguloBase = entradaBase.text.toString().fullTrim()
+                    val base = paraStringTrianguloBase.toDoubleOrNull()
+                    fun String.fullTrim2() = trim().replace("Altura:", "")
+                    val paraStringTrianguloAltura = entradaAltura.text.toString().fullTrim2()
+                    val altura = paraStringTrianguloAltura.toDoubleOrNull()
+                    if (base != null && altura != null) {
+                        val area = calcularAreaTriangulo(base, altura)
+                        actualizarTextViews("Base: $base", "","", "", "Altura: $altura", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+                }
+
+                FormaGeometrica.PENTAGONO -> {
+                    fun String.fullTrim() = trim().replace("Base:", "")
+                    val paraStringPentagonoBase = entradaBase.text.toString().fullTrim()
+                    val base = paraStringPentagonoBase.toDoubleOrNull()
+                    fun String.fullTrim2() = trim().replace("Apotema:", "")
+                    val paraStringPentagonoApotema = entradaApotema.text.toString().fullTrim2()
+                    val apotema = paraStringPentagonoApotema.toDoubleOrNull()
+                    if (base != null && apotema != null) {
+                        val area = calcularAreaPentagono(base, apotema)
+                        actualizarTextViews("Base: $base", "Apotema: $apotema","", "", "", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+                }
+
+                FormaGeometrica.HEXAGONO -> {
+                    fun String.fullTrim() = trim().replace("Base:", "")
+                    val paraStringHexagonoBase = entradaBase.text.toString().fullTrim()
+                    val base = paraStringHexagonoBase.toDoubleOrNull()
+                    fun String.fullTrim2() = trim().replace("Apotema:", "")
+                    val paraStringHexagonoApotema = entradaApotema.text.toString().fullTrim2()
+                    val apotema = paraStringHexagonoApotema.toDoubleOrNull()
+                    if (base != null && apotema != null) {
+                        val area = calcularAreaHexagono(base, apotema)
+                        actualizarTextViews("Base: $base", "Apotema: $apotema","", "", "", "El área de la forma geométrica es: $area")
+                        area
+                    } else {
+                        throw NumberFormatException()
+                    }
+                }
+
+            }
+
+            textViewResultado.text = "El área de la forma geométrica es: $resultado"
+        } catch (e: NumberFormatException) {
+            textViewResultado.text = "Error: Ingresa números válidos"
+        } catch (e: IllegalArgumentException) {
+            textViewResultado.text = "Forma geométrica no válida"
+        }
+    }
+
+
+
+   /* if (resultado != null) {
+        textViewResultado.text = "El área de la forma geométrica es: $resultado"
+    } else {
+        textViewResultado.text = "Hubo un error al calcular el área"
+    }*/
+
+
+    //funcuion para actualizar los TextViews con la informacion que se necesita
+    private fun actualizarTextViews(valorBase: String,valorApotema: String,valorRadio: String,valorLado: String, valorAltura: String, valorResultado: String) {
+        entradaBase.text = valorBase
+        entradaLado.text = valorLado
+        entradaRadio.text = valorRadio
+        entradaApotema.text = valorApotema
+        entradaAltura.text = valorAltura
+        textViewResultado.text = valorResultado
+    }
+
+
+
+
+
+    //funciones para calcular el area de las fomras geometricas
     private fun calcularAreaCuadrado(lado: Double): Double {
         return lado * lado
     }
@@ -288,7 +570,7 @@ class MainActivity : AppCompatActivity() {
         return (6 * base * apotema) / 2
     }
 
-    // Función para borrar las entradas y reiniciar el TextView del resultado
+    //funcion para borrar las entradas y reiniciar el TextView del resultado
     private fun borrarEntradas() {
         entradaLado.text = ""
         entradaBase.text = ""
@@ -296,5 +578,11 @@ class MainActivity : AppCompatActivity() {
         entradaRadio.text = ""
         entradaApotema.text = ""
         textViewResultado.text = "El área de la forma geométrica es: "
+    }
+
+    private fun establecerListenerBotonBorrar() {
+        botonBorrar.setOnClickListener {
+            borrarEntradas()
+        }
     }
 }

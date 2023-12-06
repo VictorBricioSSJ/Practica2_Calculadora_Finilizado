@@ -37,42 +37,42 @@
                 android:id="@+id/imageButtonCuadrado"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaCuadrado"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/cuadradooo" />
 
             <ImageButton
                 android:id="@+id/imageButtonRectangulo"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaRectangulo"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/rectangleee" />
 
             <ImageButton
                 android:id="@+id/imageButtonTriangulo"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaTriangulo"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/triangle" />
 
             <ImageButton
                 android:id="@+id/imageButtonCirculo"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaCirculo"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/circculooo" />
 
             <ImageButton
                 android:id="@+id/imageButtonPentagono"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaPentagono"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/pentagonoo" />
 
             <ImageButton
                 android:id="@+id/imageButtonHexagono"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
-                android:onClick="calcularAreaHexagono"
+                android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/hexagonoo" />
         </GridLayout>
     </FrameLayout>
@@ -82,25 +82,53 @@
         android:layout_height="0dp"
         android:layout_weight="2">
 
-        <TextView
-            android:id="@+id/textView5"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="Base:" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="bottom"
-            android:text="El área de forma geométrica es:" />
+            <TextView
+                android:id="@+id/textViewRadio"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Radio: " />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:text="Altura:" />
+            <TextView
+                android:id="@+id/textViewApotema"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Apotema: " />
+
+            <TextView
+                android:id="@+id/textViewLado"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Lado: " />
+
+            <TextView
+                android:id="@+id/textViewBase"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Base:" />
+
+            <TextView
+                android:id="@+id/textViewAltura"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Altura:" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="El área de forma geométrica es:" />
+        </LinearLayout>
     </FrameLayout>
 
     <FrameLayout
@@ -120,7 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="1"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/unoo" />
 
             <ImageButton
@@ -128,7 +156,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="2"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/dooos" />
 
             <ImageButton
@@ -136,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="3"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/treees" />
 
             <ImageButton
@@ -144,7 +172,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="4"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/cuatrooo" />
 
             <ImageButton
@@ -152,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="5"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/cincooo" />
 
             <ImageButton
@@ -160,7 +188,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="6"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/seiiis" />
 
             <ImageButton
@@ -168,7 +196,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="7"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/sieteee" />
 
             <ImageButton
@@ -176,7 +204,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="8"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/ochooo" />
 
             <ImageButton
@@ -184,7 +212,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="9"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/nueveee" />
 
             <ImageButton
@@ -194,9 +222,16 @@
                 android:layout_row="3"
                 android:layout_column="1"
                 android:contentDescription="0"
-                android:onClick="agregarNumero"
+                android:onClick="onNumero"
                 android:src="@mipmap/cerooo" />
         </GridLayout>
+
+        <ImageButton
+            android:id="@+id/imageButtonCambiar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="listenerCambiar"
+            app:srcCompat="@android:drawable/checkbox_on_background" />
     </FrameLayout>
 
     <FrameLayout
