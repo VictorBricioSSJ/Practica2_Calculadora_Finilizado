@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/botonCalcularr"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:background="#000000"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -15,9 +16,12 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="match_parent"
+            android:textSize="30sp"
+            android:textColor="#ffffff"
             android:gravity="center"
+            android:fontFamily="@font/moment"
             android:text="Calculador Areas" />
     </FrameLayout>
 
@@ -38,21 +42,21 @@
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
-                android:src="@mipmap/cuadradooo" />
+                android:src="@mipmap/cuadradopruebados" />
 
             <ImageButton
                 android:id="@+id/imageButtonRectangulo"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
-                android:src="@mipmap/rectangleee" />
+                android:src="@mipmap/rectanguloprueba" />
 
             <ImageButton
                 android:id="@+id/imageButtonTriangulo"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
-                android:src="@mipmap/triangle" />
+                android:src="@mipmap/trianguloprueba" />
 
             <ImageButton
                 android:id="@+id/imageButtonCirculo"
@@ -66,14 +70,14 @@
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
-                android:src="@mipmap/pentagonoo" />
+                android:src="@mipmap/pentagonoprueba" />
 
             <ImageButton
                 android:id="@+id/imageButtonHexagono"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
-                android:src="@mipmap/hexagonoo" />
+                android:src="@mipmap/hexagonoprueba" />
         </GridLayout>
     </FrameLayout>
 
@@ -92,6 +96,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="Radio: " />
 
             <TextView
@@ -99,6 +106,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="Apotema: " />
 
             <TextView
@@ -106,6 +116,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="Lado: " />
 
             <TextView
@@ -113,6 +126,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="Base:" />
 
             <TextView
@@ -120,6 +136,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="Altura:" />
 
             <TextView
@@ -127,6 +146,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
+                android:textSize="18sp"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/backgroove"
                 android:text="El área de forma geométrica es:" />
         </LinearLayout>
     </FrameLayout>
@@ -245,13 +267,21 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:gravity="center"
+            android:fontFamily="@font/roseta"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@drawable/btn_color"
             android:text="Borrar" />
 
         <Button
             android:id="@+id/botonCalcular"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/roseta"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:background="@drawable/btn_color"
             android:text="Calcular"
-            android:onClick="calcularArea" />
+            android:onClick="calcularArea"/>
     </FrameLayout>
 </LinearLayout>

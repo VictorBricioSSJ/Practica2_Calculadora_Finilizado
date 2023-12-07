@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name = "colorBtn">#06AB5A</color>
+    <color name = "colorBtnPress">#C5311E</color>
 </resources>

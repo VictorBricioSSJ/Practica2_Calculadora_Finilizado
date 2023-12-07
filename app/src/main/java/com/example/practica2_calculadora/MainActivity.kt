@@ -122,6 +122,7 @@ class MainActivity : AppCompatActivity() {
     }*/
 
 
+    //añado este botonCambiar para que al darle, pase a escribirme al siguiente textView, por ejemplo en el rectangulo primero pongo los numeros en la base, y para bajar a la altura y colocar los datos le tengo que dar al boton
     var opcion = 0
 
     private fun listenerCambiar(){
@@ -416,6 +417,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    //aqui uso la funcion trim, para que cuando coja la lista de numeros de los textView, no me coja la parte del texto, y solo me coja los numeros para que me calcule el area sin nigun problema, porque sino tambien me cogeria el texto y da error
     private fun calcularArea() {
 
         try {
