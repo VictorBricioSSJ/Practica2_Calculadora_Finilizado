@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#000000"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -270,9 +271,10 @@
         </GridLayout>
 
         <ImageButton
-            android:id="@+id/imageButton"
+            android:id="@+id/imageButtonCambiar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="listenerCambiar"
             app:srcCompat="@android:drawable/checkbox_on_background" />
     </FrameLayout>
 
@@ -292,6 +294,7 @@
             android:textColor="#ffffff"
             android:onClick="calcularArea"
             android:background="@drawable/btn_color"
+            android:textSize="20sp"
             android:text="Calcular"
            />
 
@@ -308,6 +311,7 @@
             android:textColor="#ffffff"
             android:fontFamily="@font/roseta"
             android:background="@drawable/btn_color"
+            android:textSize="20sp"
             android:text="Borrar"
             />
 
