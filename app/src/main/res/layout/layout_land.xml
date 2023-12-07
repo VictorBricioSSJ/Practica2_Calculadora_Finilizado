@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:fontFamily="@font/moment"
+        android:textColor="#ffffff"
+        android:text="Calculador Areas" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_weight="0.25">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:columnCount="3"
+            android:rowCount="2">
+
+            <ImageButton
+                android:id="@+id/imageButtonCuadrado"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:src="@mipmap/cuadradopruebados"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonRectangulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:src="@mipmap/rectanguloprueba"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonTriangulo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:tag="triangulo"
+                android:src="@mipmap/trianguloprueba"/>
+
+
+            <ImageButton
+                android:id="@+id/imageButtonCirculo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:src="@mipmap/circculooo"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonPentagono"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:src="@mipmap/pentagonoprueba"/>
+
+            <ImageButton
+                android:id="@+id/imageButtonHexagono"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_columnWeight="1"
+                android:onClick="actualizarVisibilidadEntrada"
+                android:src="@mipmap/hexagonoprueba"/>
+
+
+        </GridLayout>
+    </FrameLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.225">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewRadio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="Radio: " />
+
+                <TextView
+                    android:id="@+id/textViewApotema"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="Apotema: " />
+
+                <TextView
+                    android:id="@+id/textViewLado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="Lado: " />
+
+                <TextView
+                    android:id="@+id/textViewBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="Base: " />
+
+                <TextView
+                    android:id="@+id/textViewAltura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="Altura: " />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/backgroove"
+                    android:text="El área de forma geométrica es:" />
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="0.275">
+
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:alignmentMode="alignMargins"
+            android:columnCount="5"
+            android:orientation="horizontal"
+            android:rowCount="2">
+
+            <ImageButton
+                android:id="@+id/imageButtonUNO"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/unoo"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonDOS"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/dooos"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonTRES"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/treees"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonCUATRO"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/cuatrooo"
+                 />
+
+            <ImageButton
+                android:id="@+id/imageButtonCINCO"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/cincooo"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonSEIS"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/seiiis"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonSIETE"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/sieteee"
+                />
+
+            <ImageButton
+                android:id="@+id/imageButtonOCHO"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/ochooo" />
+
+            <ImageButton
+                android:id="@+id/imageButtonNUEVE"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:layout_columnSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/nueveee" />
+
+            <ImageButton
+                android:id="@+id/imageButtonCERO"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_rowSpan="1"
+                android:onClick="onNumero"
+                android:src="@mipmap/cerooo" />
+        </GridLayout>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/checkbox_on_background" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/botonCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/roseta"
+            android:textColor="#ffffff"
+            android:onClick="calcularArea"
+            android:background="@drawable/btn_color"
+            android:text="Calcular"
+           />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/botonBorrar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/roseta"
+            android:background="@drawable/btn_color"
+            android:text="Borrar"
+            />
+
+    </LinearLayout>
+</LinearLayout>
