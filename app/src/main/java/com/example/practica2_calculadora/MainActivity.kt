@@ -2,7 +2,6 @@ package com.example.practica2_calculadora
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -199,7 +198,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    private fun obtenerTextView(formaSeleccionada: FormaGeometrica): TextView? {
+   /* private fun obtenerTextView(formaSeleccionada: FormaGeometrica): TextView? {
         return when (formaSeleccionada) {
             FormaGeometrica.CUADRADO -> entradaLado
             FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO -> entradaAltura
@@ -207,7 +206,7 @@ class MainActivity : AppCompatActivity() {
             FormaGeometrica.CIRCULO -> entradaRadio
             FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaApotema
         }
-    }
+    }*/
 
 
 
@@ -225,7 +224,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //funcion para obtener el valor numero de los TextView
-    private fun obtenerValorNumerico(textView: TextView): Double {
+   /* private fun obtenerValorNumerico(textView: TextView): Double {
         val text = textView.text.toString()
         return try {
             text.toDouble()
@@ -233,7 +232,7 @@ class MainActivity : AppCompatActivity() {
             Log.e("Error", "Error al convertir $text a Double", e)
             Double.NaN
         }
-    }
+    }*/
 
     private fun actualizarVisibilidadEntrada() {
         //oculta todos los campos de entrada
