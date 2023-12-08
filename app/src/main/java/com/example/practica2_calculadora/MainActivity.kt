@@ -417,7 +417,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //aqui uso la funcion trim, para que cuando coja la lista de numeros de los textView, no me coja la parte del texto, y solo me coja los numeros para que me calcule el area sin nigun problema, porque sino tambien me cogeria el texto y da error
+    //aqui uso la funcion trim, para que cuando coja los numeros de los textView, no me coja la parte del texto, y solo me coja los numeros para que me calcule el area sin nigun problema, porque sino tambien me cogeria el texto y da error
     private fun calcularArea() {
 
         try {
