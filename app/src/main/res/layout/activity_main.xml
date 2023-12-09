@@ -39,6 +39,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonCuadrado"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
@@ -46,6 +47,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonRectangulo"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
@@ -53,6 +55,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonTriangulo"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
@@ -60,6 +63,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonCirculo"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
@@ -67,6 +71,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonPentagono"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
@@ -74,6 +79,7 @@
 
             <ImageButton
                 android:id="@+id/imageButtonHexagono"
+                android:background="@null"
                 android:layout_width="137dp"
                 android:layout_height="110dp"
                 android:onClick="actualizarVisibilidadEntrada"
