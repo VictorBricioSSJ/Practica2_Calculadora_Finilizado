@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         //listener para cada botnn que selecciona la forma geometrica
         for (boton in botonesForma) {
             boton.setOnClickListener {
-                //determina la forma seleccionada segun el boton seleccioando
+                //determina la forma seleccionada segun el boton que se haya seleccionado
                 formaSeleccionada = when (boton.id) {
                     R.id.imageButtonCuadrado -> FormaGeometrica.CUADRADO
                     R.id.imageButtonRectangulo -> FormaGeometrica.RECTANGULO
@@ -102,23 +102,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
-
-
-    /*private fun establecerListenersNumeros() {
-        // Listener para cada botón numérico
-        for (i in botonesNumero.indices) {
-            val numero = i.toString()
-            botonesNumero[i].setOnClickListener { agregarNumero(numero) }
-        }
-    }*/
-    //funcion para agregar un numero a la entrada segun la forma seleccionada
-    /*private fun agregarNumero(numero: String) {
-        val textView = obtenerTextView(formaSeleccionada)
-        val textoActual = textView?.text.toString()
-        textView?.text = textoActual + numero
-    }*/
 
 
     //añado este botonCambiar para que al darle, pase a escribirme al siguiente textView, por ejemplo en el rectangulo primero pongo los numeros en la base, y para bajar a la altura y colocar los datos le tengo que dar al boton
@@ -197,43 +180,6 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-   /* private fun obtenerTextView(formaSeleccionada: FormaGeometrica): TextView? {
-        return when (formaSeleccionada) {
-            FormaGeometrica.CUADRADO -> entradaLado
-            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO -> entradaAltura
-            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO, FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaBase
-            FormaGeometrica.CIRCULO -> entradaRadio
-            FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaApotema
-        }
-    }*/
-
-
-
-    /*private fun agregarNumero(numero: String) {
-        val editText = when (formaSeleccionada) {
-            FormaGeometrica.CUADRADO -> entradaLado
-            FormaGeometrica.RECTANGULO, FormaGeometrica.TRIANGULO -> entradaBase
-            FormaGeometrica.CIRCULO -> entradaRadio
-            FormaGeometrica.PENTAGONO, FormaGeometrica.HEXAGONO -> entradaApotema
-        }
-        val textoActual = editText.text.toString()
-        editText.setText(textoActual + numero)
-    }*/
-    //funcion para establecer el listener del boton de calcular
-
-
-    //funcion para obtener el valor numero de los TextView
-   /* private fun obtenerValorNumerico(textView: TextView): Double {
-        val text = textView.text.toString()
-        return try {
-            text.toDouble()
-        } catch (e: NumberFormatException) {
-            Log.e("Error", "Error al convertir $text a Double", e)
-            Double.NaN
-        }
-    }*/
-
     private fun actualizarVisibilidadEntrada() {
         //oculta todos los campos de entrada
 
@@ -288,128 +234,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
-
-
-    //funcion para actualizar la visibilidad de las entradas dependiendo de la forma seleccionada
-    /*private fun actualizarVisibilidadEntrada() {
-        // Oculta todos los campos de entrada
-        entradaLado.visibility = View.GONE
-        entradaBase.visibility = View.GONE
-        entradaAltura.visibility = View.GONE
-        entradaRadio.visibility = View.GONE
-        entradaApotema.visibility = View.GONE
-
-        // muestra solo el campo que se quiere para la forma geometrica seleccionada
-        when (formaSeleccionada) {
-            FormaGeometrica.CUADRADO -> entradaLado.visibility = View.VISIBLE
-            FormaGeometrica.RECTANGULO -> {
-                entradaBase.visibility = View.VISIBLE
-                entradaAltura.visibility = View.VISIBLE
-            }
-            FormaGeometrica.CIRCULO -> entradaRadio.visibility = View.VISIBLE
-            FormaGeometrica.TRIANGULO -> {
-                entradaBase.visibility = View.VISIBLE
-                entradaAltura.visibility = View.VISIBLE
-            }
-            FormaGeometrica.PENTAGONO -> entradaApotema.visibility = View.VISIBLE
-            FormaGeometrica.HEXAGONO -> entradaApotema.visibility = View.VISIBLE
-        }
-        textViewResultado.visibility = View.VISIBLE
-    }*/
-
-
-
-
-    /* private fun actualizarVisibilidadEntrada() {
-         when (formaSeleccionada) {
-             FormaGeometrica.CUADRADO -> {
-                 entradaLado.visibility = View.VISIBLE
-                 entradaBase.visibility = View.GONE
-                 entradaAltura.visibility = View.GONE
-                 entradaRadio.visibility = View.GONE
-                 entradaApotema.visibility = View.GONE
-             }
-             FormaGeometrica.RECTANGULO -> {
-                 entradaLado.visibility = View.GONE
-                 entradaBase.visibility = View.VISIBLE
-                 entradaAltura.visibility = View.VISIBLE
-                 entradaRadio.visibility = View.GONE
-                 entradaApotema.visibility = View.GONE
-             }
-             FormaGeometrica.CIRCULO -> {
-                 entradaLado.visibility = View.GONE
-                 entradaBase.visibility = View.GONE
-                 entradaAltura.visibility = View.GONE
-                 entradaRadio.visibility = View.VISIBLE
-                 entradaApotema.visibility = View.GONE
-             }
-             FormaGeometrica.TRIANGULO -> {
-                 entradaLado.visibility = View.GONE
-                 entradaBase.visibility = View.VISIBLE
-                 entradaAltura.visibility = View.VISIBLE
-                 entradaRadio.visibility = View.GONE
-                 entradaApotema.visibility = View.GONE
-             }
-             FormaGeometrica.PENTAGONO -> {
-                 entradaLado.visibility = View.VISIBLE
-                 entradaBase.visibility = View.GONE
-                 entradaAltura.visibility = View.GONE
-                 entradaRadio.visibility = View.GONE
-                 entradaApotema.visibility = View.VISIBLE
-             }
-             FormaGeometrica.HEXAGONO -> {
-                 entradaLado.visibility = View.VISIBLE
-                 entradaBase.visibility = View.GONE
-                 entradaAltura.visibility = View.GONE
-                 entradaRadio.visibility = View.GONE
-                 entradaApotema.visibility = View.VISIBLE
-             }
-         }
-     }*/
-
-
-
-
-    /*private fun actualizarVisibilidadEntrada() {
-        entradaLado.visibility = if (formaSeleccionada == FormaGeometrica.CUADRADO) View.VISIBLE else View.GONE
-        entradaBase.visibility =
-            if (formaSeleccionada == FormaGeometrica.RECTANGULO || formaSeleccionada == FormaGeometrica.TRIANGULO) View.VISIBLE else View.GONE
-        entradaAltura.visibility =
-            if (formaSeleccionada == FormaGeometrica.RECTANGULO || formaSeleccionada == FormaGeometrica.TRIANGULO) View.VISIBLE else View.GONE
-        entradaRadio.visibility = if (formaSeleccionada == FormaGeometrica.CIRCULO) View.VISIBLE else View.GONE
-        entradaApotema.visibility =
-            if (formaSeleccionada == FormaGeometrica.PENTAGONO || formaSeleccionada == FormaGeometrica.HEXAGONO) View.VISIBLE else View.GONE
-    }*/
-    //funcion para calcular el area dependiendo de la forma seleccionada
-    /*private fun calcularArea() {
-        val area = when (formaSeleccionada) {
-            FormaGeometrica.CUADRADO -> calcularAreaCuadrado(entradaLado.text.toString().toDouble())
-            FormaGeometrica.RECTANGULO -> calcularAreaRectangulo(
-                entradaBase.text.toString().toDouble(),
-                entradaAltura.text.toString().toDouble()
-            )
-            FormaGeometrica.CIRCULO -> calcularAreaCirculo(entradaRadio.text.toString().toDouble())
-            FormaGeometrica.TRIANGULO -> calcularAreaTriangulo(
-                entradaBase.text.toString().toDouble(),
-                entradaAltura.text.toString().toDouble()
-            )
-            FormaGeometrica.PENTAGONO -> calcularAreaPentagono(
-                entradaBase.text.toString().toDouble(),
-                entradaApotema.text.toString().toDouble()
-            )
-            FormaGeometrica.HEXAGONO -> calcularAreaHexagono(
-                entradaBase.text.toString().toDouble(),
-                entradaApotema.text.toString().toDouble()
-            )
-        }
-        //actualiza el TextView con el resultado del area
-        textViewResultado.text = "El área de la forma geométrica es: $area"
-    }*/
-
     //funcion para calcular el area segun la forma seleccionada
-
     private fun establecerListenerBotonCalcular() {
         botonCalcular.setOnClickListener {
             calcularArea()
@@ -522,7 +347,6 @@ class MainActivity : AppCompatActivity() {
             textViewResultado.text = "Forma geométrica no válida"
         }
     }
-
 
 
    /* if (resultado != null) {
