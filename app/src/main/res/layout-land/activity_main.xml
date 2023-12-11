@@ -49,9 +49,10 @@
 
             <ImageButton
                 android:id="@+id/imageButtonRectangulo"
-                android:background="@null"
                 android:layout_width="88dp"
                 android:layout_height="86dp"
+                android:background="#B29F8D"
+                android:backgroundTint="#B29F8D"
                 android:onClick="actualizarVisibilidadEntrada"
                 android:src="@mipmap/rectanguloprueba" />
 
@@ -180,6 +181,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="1"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/unoo" />
 
@@ -188,6 +190,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="2"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/dooos" />
 
@@ -196,6 +199,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="3"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/treees" />
 
@@ -204,6 +208,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="4"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/cuatrooo" />
 
@@ -212,6 +217,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="5"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/cincooo" />
 
@@ -220,6 +226,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="6"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/seiiis" />
 
@@ -228,6 +235,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="7"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/sieteee" />
 
@@ -236,6 +244,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="8"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/ochooo" />
 
@@ -244,6 +253,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="9"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/nueveee" />
 
@@ -252,6 +262,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="0"
+                android:backgroundTint="#B29F8D"
                 android:onClick="onNumero"
                 android:src="@mipmap/cerooo" />
         </GridLayout>
